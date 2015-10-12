@@ -1,0 +1,20 @@
+/* 
+    Document   : nutritionstyle
+    Created on : 18/01/2012, 4:33:56 PM
+    Author     : nevilej
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+            body {margin-left: 2%; margin-right:2%; text-align:center}
+            H3 {border-width: 4px; border: solid; text-align: center}
+            #History, #Assessment, #Plan, #Review, #Discharge, #Summary {border-width: 1em; border: solid; text-align: center}
+            #output, #totals {border-width: 1em; border: solid; text-align: center; background: white;}
+            SPAN { font-variant: small-caps; margin-right: 2em; }
+            DIV { text-align: justify; padding: 3px; background: aqua; }
+            /*DIV { text-align: justify; width: 80%; padding: 5%; background: aqua; }*/

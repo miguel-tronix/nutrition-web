@@ -1,0 +1,66 @@
+<div class="content">
+<div ng-show="search.patient.show">
+            <h2>Search Patient</h2>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>Search only live patients</p>
+                </div>
+                <div class="col-xs-6">
+                    <div class="row-fluid btn-group">
+                        <button class="btn btn-primary-choice" ng-click="search.patient.setLookup(lookup)" ng-input="lookup" ng-model="search.patient.lookup" btn-radio="lookup" ng-repeat="lookup in search.patient.lookups">{{lookup}}</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-6">
+                    <input type="text" placeholder="Enter UR" class="minor_textbox" ng-input="patientUrOnly" ng-model="search.patient.patientUrOnly" ng-focus="search.patient.clear()"/>
+               </div>
+                <div class="col-xs-6">
+                    <button class="btn btn-primary" ng-click="search.patient.findPatientsByUROnly()">SEARCH UR</button>
+                </div>
+            </div>
+            <br />
+            <div><input type="text" placeholder="Enter patient ID or name" class="minor_textbox" ng-input="patientUr" ng-model="search.patient.patientUr" ng-focus="search.patient.clear()" ng-change="search.patient.findPatients()" /></div>
+            <br />
+        </div>
+        <div ng-show="search.patient.loading">
+            <div class="spinner">
+    Loading...
+</div>
+        </div>
+        <div ng-show="search.patient.showgrid">
+            <div id="hosp_patient_table" class="gridStyle" ng-grid="search.patient.gridOptions"></div>
+            <br />
+          </div>
+        
+        <div ng-show="search.hosp.loading">
+            <div class="spinner">
+    Loading...
+</div>
+        </div>
+        <div ng-show="search.hosp.show">
+            <h2>Search Hospital Admissions</h2>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>Search only current admissions</p>
+                </div>
+                <div class="col-xs-6">
+                    <div class="row-fluid btn-group">
+                        <button class="btn btn-primary-choice" ng-click="search.hosp.setLookup(lookup)" ng-input="lookup" ng-model="search.hosp.lookup" btn-radio="lookup" ng-repeat="lookup in search.hosp.lookups">{{lookup}}</button>
+                    </div>
+                </div>
+            </div>
+            <div><input type="text" placeholder="Enter patient ID or name" class="minor_textbox" ng-input="hospPatientUr" ng-model="search.hosp.patientUr" ng-focus="search.hosp.clearICU()" ng-change="search.hosp.findAdmissions()" /></div>
+            <br />
+        </div>
+         <div ng-show="search.hosp.show">
+            <div id="hosp_admissions_table" class="gridStyle" ng-grid="search.hosp.gridOptions"></div>
+            <br />
+        </div>
+        <div ng-show="search.icu.loading">
+            <div class="spinner">
+    Loading...
+</div>
+        </div>
+</div>

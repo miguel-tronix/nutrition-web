@@ -1,0 +1,183 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+
+.container ul li{
+    list-style-type: none;
+    padding: 10px;
+}
+
+.heading {
+    font-size: 14pt;
+}
+
+.major_textbox {
+    width: 100%;
+    height: 250px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+            
+}
+
+.minor_textbox {
+    width: 100%;
+    height: 50px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+            
+}
+
+.dock-view{
+    width:100%;
+    height:100%;
+}
+
+.dialog-text {
+    width: 100%;
+    height: 50px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+            
+}
+
+.halfScreenLeft {
+    width: 50%;
+    display: inline;
+    float:left;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.halfScreenRight {
+    width: 50%;
+    float: right;
+    display: inline;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+input[type="radio"] {
+    display: inline-block;
+    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.rblabel {
+    padding-right:10px;
+}
+
+.gridAddBtn{
+    
+    padding-top:20px;
+}
+
+.gridStyle{
+    border: 1px solid rgb(212,212,212);
+    margin: 2px;
+    height: 250px;
+}
+
+.modal .row {
+    padding-top:2px;
+    padding-bottom:1px;
+}
+
+.btn-primary-choice {
+  background-image: -webkit-linear-gradient(top, #e0e0e0 0%, #ccc 100%);
+  background-image: linear-gradient(to bottom, #e0e0e0 0%, #ccc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff2d6ca2', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: #2b669a;
+  color:#ffffff;
+}
+
+.green {
+    background-color: #c9f2ba;
+    color: black;
+}
+
+.blue {
+    background-color: #ddeeff;
+    color: black;
+}
+
+.yellow{
+    background-color: #f6e023;
+    color: black;
+}
+
+.offwhite{
+    background-color: #f9f7ed;
+    color: black;
+}
+
+.red {
+    background-color:#e11a1a;
+    color:white;
+}
+
+#icu_patients .panel-default {
+    width: 1200px;
+}
+
+#icu_patients .panel-heading {
+    
+    color: white;
+    font-weight:bolder;
+    background-image: linear-gradient(to bottom,  #333 0%,#428bca 100%);
+    background-repeat: repeat-x;
+}
+
+#icu_patients .accordion-inner {
+    width: 1300px;
+    height: 800px;
+}
+
+#icu_patients .nav a, .pagination a, .carousel a, .accordion-toggle  {
+    cursor: pointer;
+}
+
+ @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: @screen-tablet) { 
+
+  ::i-block-chrome, .row.safari-fix  {
+    display:table!important;
+  }
+ ::i-block-chrome, .row.safari-fix [class*="col-"] {
+    display:table-cell!important;
+    float:none!important;
+   width:auto!important;
+   padding-left:2%!important;
+   padding-right:2%!important;
+  }
+
+} /* end safari rounding bug hack */

@@ -1,0 +1,442 @@
+/* 
+    Document   : nutrition_style
+    Created on : 19/01/2012, 12:14:24 PM
+    Author     : nevilej
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@media screen
+{
+
+    root { 
+        display: block;        
+    }
+
+  
+    .bck {
+  display: block;
+  position: relative;
+}
+
+.bck::after {
+  content: "";
+  background: url('img/nutrition_background_cup.jpg');
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+    
+    /*margin-left: 1%; margin-right:1%;*/
+    H3 {text-align: center}
+    /*
+      H4 {padding-top: -4px; padding-bottom: 0px}
+    */
+    H5 {text-align: center;}
+    #output {border: none; border-width: thin; border-color:black; text-align: center; background: white;}
+    P {text-align: center; font-weight: bold}
+    #notForStaffToSee {visibility:hidden}
+    
+     /*white-space:nowrap;*/
+     
+    #nutsAP {padding: 1px; text-align: justify; background: #F0F0F0; /*margin-left: 2%; margin-right: 2%*/ }
+    #personalDetails, #History, #Assessment, #Plan, #Review, #Discharge, #Summary {
+        border: none; border-width: thin; text-align: center; background: #F0F0F0;
+        margin-left: 1px; margin-right: 1px; padding-bottom: 5px; margin-bottom: 5px;}
+    .HistoryBox {background-color:#EAEAEA; vertical-align:bottom}
+    #EN, #PN, #oral, #totals, .thinBox {border:none; border-width:thin; margin-left: 1%; margin-right:1%}
+    .calculated {
+        text-align:center;
+        background-color:#EAEAEA;
+        border:none;
+    }
+    .thinbox2 {border:none; border-width:thin; float:left; padding:1px; margin:2px} /* the normal box for stuff */
+    .thinbox3 {border:none; border-width:thin; float:right; padding:1px; margin:2px}
+    .thinbox4 {border:none; border-width:thin; float:left; padding:1px; margin:2px; height:130px}
+    .thinboxCenter {border:none; border-width:thin; float:left; padding:1px; margin:2px}
+    .thinboxRight {
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        border:none;
+        margin:2px;
+        background:#a9c7ed no-repeat bottom;
+        padding: 2px 4px;
+        width:15%;
+        float: top;
+    }
+    
+    .data_entry
+    {
+        border:none;
+        padding:1px;
+        margin:2px;
+        vertical-align: top;
+        font-weight: bold;
+        font-size: 10pt;
+        display:inline-block;
+        opacity:1;
+        filter:alpha(opacity=100);
+    }
+    
+    .prokinetics table
+    {
+        color:goldenrod;
+        font-weight: bold;
+        font-size: 10pt;
+        font-family:inherit;
+    }
+    
+    .aperients table
+    {
+        color:tomato;
+        font-weight: bold;
+        font-size: 10pt;
+        font-family:inherit;
+    }
+    
+    .standard_header_text
+    {
+        color:#7e7d91;
+        font-weight: bold;
+        font-size: 12pt;
+        font-family:inherit;
+    }
+    
+    .standard_text
+    {
+        color:#448dae;
+        font-weight: bold;
+        font-size: 10pt;
+        font-family:inherit;
+    }
+    
+    .standard_text table
+    {
+        color:#448dae;
+        font-weight: bold;
+        font-size: 10pt;
+        font-family:inherit;
+    }
+    
+    #reviews_list
+    {
+        overflow:auto;
+    }
+    
+     #plans_list
+    {
+        
+        overflow:auto;
+    }
+    
+     
+    
+    .defaults{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 30px;
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        color:#ffffff;
+        background:royalblue;
+    }
+
+    .button-new{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 2px;
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        background:darkseagreen no-repeat top ;
+        color:#ffffff;
+    }
+
+    .button-vals{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 2px;
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        background:#4DB8B8 no-repeat top ;
+        color:#ffffff;
+    }
+    
+    .button-update{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 2px;
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        background:#ec8fb7 no-repeat top ;
+        color:#ffffff;
+    }
+
+    .button-extra{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 2px;
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        background:#999 no-repeat top ;
+        color:#ffffff;
+    }
+
+    .button-delete{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 2px;
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        background:tomato no-repeat top ;
+        color:#ffffff;
+    }
+
+    .summaryInfo
+    {
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        border:solid;
+        margin:2px;
+        vertical-align:top;
+        width:15%;    
+    }
+
+    ul{
+        padding: 1px 1px;
+        border: none;
+        color:#448dae;
+        font-weight:bold;
+    }
+
+    li{
+        list-style:none;
+        padding: 1px 1px;
+        text-align:center;
+        display:block;
+    }
+    
+    span
+    {
+        text-align: right;
+    }
+
+    
+    fieldset{
+        border:none;
+    }
+    
+    input[type="text"]
+    {
+         -moz-border-radius: 1em 1em 1em 1em;
+        border-radius: 1em 1em 1em 1em;
+        border: none;
+        color:#448dae;
+    }
+    
+    input[type=checkbox]
+    {
+        color: orange;
+    }
+    
+    label
+    {
+        font-family:inherit;
+        font-size: 12px;
+        font-weight:bold;
+        color:#448dae;
+    }
+    
+    select
+    {
+        text-align:center;
+        color:#448dae;
+    }
+    
+    td{
+        vertical-align: top;
+    }
+    
+    tr{
+        vertical-align: top;
+    }
+    
+    .reviewCommentBox {float:left; padding:1px; margin:2px; width:100%}
+
+    #Discharge, #Summary {visibility: hidden}
+
+   .button{
+        -moz-border-radius: 1em 4em 1em 4em;
+        border-radius: 1em 4em 1em 4em;
+        border: none;
+        background:#1c94c4 no-repeat top ;
+        padding: 2px 8px;
+    }
+
+    .button:active{
+        -moz-border-radius: 1em 4em 1em 4em;
+        border-radius: 1em 4em 1em 4em;
+        border: none;
+        background:#666666 no-repeat bottom;
+        padding: 2px 8px;
+    }
+    select {text-align:right}
+    .selectText {text-align:center}
+
+    .dictionary_list{ 
+        -moz-border-radius: 1em 4em 1em 4em;
+        border-radius: 1em 4em 1em 4em;
+        border:solid;
+        margin:2px;
+        background:#76bbe3 no-repeat bottom;
+        padding: 2px 8px;
+        color:#ffffff;
+        cursor: default;
+    }
+
+    .dictionary_list_active{ 
+        -moz-border-radius: 1em 4em 1em 4em;
+        border-radius: 1em 4em 1em 4em;
+        border:solid;
+        margin:2px;
+        background:#ffffff no-repeat bottom;
+        padding: 2px 8px;
+        cursor:default;
+        color:#76bbe3;
+        
+    }
+
+    
+    
+    .hiddenVar{
+        visibility: hidden;
+        display:none;
+    }
+    
+    #showPatientDetails
+    {
+        opacity:98;
+        filter:alpha(opacity=98);
+    }
+     #reviews
+    {
+        background-color: #ffed0a;
+        opacity:38;
+        filter:alpha(opacity=38);
+    }
+    
+}
+
+@media print {
+    
+    .summaryPlotsPrint
+    {
+        display:inline;
+        visibility:visible;
+        text-align: center;
+    }
+    
+    .summaryPlotPrint{
+        height:400px;
+        width: 600px;
+        visibility:visible;
+        display:inline-block;
+        text-align: center;
+    }
+    
+    .hiddenVar{
+        display:block;
+        visibility:visible;
+    }
+    
+    .summaryPlotsScreen{
+        display:none;
+        visibility:hidden;
+    }
+    
+    #tabsMain
+    {
+        visibility:hidden;
+    }
+    
+   .thinboxLeftPrint {
+        display:table-cell;
+        visibility:visible;
+        width:85%;
+    }
+    
+    .thinboxRightPrint {
+        -moz-border-radius: 2em 2em 2em 2em;
+        border-radius: 2em 2em 2em 2em;
+        border:none;
+        margin:2px;
+        background:#a9c7ed no-repeat bottom;
+        padding: 2px 4px;
+        width:15%;
+        vertical-align:top;
+        visibility:visible;
+        display:table-cell;
+    }
+    
+    .defaults{
+        display:none;
+        visibility:hidden;
+    }
+    
+    .defaultsPrint{
+        text-align:center;
+        width:100%;
+        padding: 2px 2px;
+        margin-top: 30px;
+        display:inline-table;
+        visibility:visible;
+    }
+    
+    li{
+        list-style:none;
+    }
+    
+    #printableInfo
+    {
+        visibility: visible;
+        display:inline;
+    }
+    
+    #nonPrintableInfo
+    {
+        visibility:hidden;
+        display: none;
+    }
+    
+     #printSummaryScreen
+    {
+        display:inline-table;
+        visibility: visible;
+    }
+    
+     #showSummaryScreen
+    {
+        display:none;
+        visibility: hidden;
+    }
+    
+    input[type=text]
+    {
+        border:none;
+        background: lightgrey;
+    }
+}

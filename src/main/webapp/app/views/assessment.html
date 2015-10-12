@@ -1,0 +1,410 @@
+    <div class="content">
+                            <div id="anp">
+                                                <div class="row">
+                                                            <div id="Assesment" class="col-lg-10">
+                                                                <div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                            Weight (Kg):
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" class="selectText" ng-change="assessment.calcBMI()" ng-model="assessment.weight" id="weight" typeahead="weight.text for weight in assessment.weightItems | filter: $viewValue | limitTo:8" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                             <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Source:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <select ng-model="assessment.weightSource" class="selectText" id="weightSource">
+                                                                                    <option value="Actual" selected="selected">Actual</option>
+                                                                                    <option value="Family">Family</option>
+                                                                                    <option value="Dietician">Dietician</option>
+                                                                                    <option value="Patient">Patient</option>
+                                                                                </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                         Stress Factor:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                           <input type="text" id="stressFactor" ng-model="assessment.stressFactor" ng-change="assessment.calcBMI()" typeahead="stressFactor.text for stressFactor in assessment.sfItems | filter: $viewValue | limitTo:8"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Activity Factor:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" id="activityFactor" ng-model="assessment.activityFactor" ng-change="assessment.calcBMI()" typeahead="af.text for af in assessment.afItems | filter: $viewValue | limitTo:8" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                         RMR (MJ):
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" size="3" ng-change="assessment.calcBMI()" ng-model="assessment.rmr" id="rmr"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                             <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Equation:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                           <select class="selectText" id="equation" ng-model="assessment.equation" ng-change="assessment.dodgeSex()">
+                                                                                <option value="Schofield" selected="selected">Schofield BMR</option>
+                                                                                <option value="Calorimetry">Calorimetry</option>
+                                                                                <option value="SchofieldMale">Set the sex to Male</option>
+                                                                                <option value="SchofieldFemale">Set the sex to Female</option>
+
+                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Protein estimation (g/Kg/day):
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" typeahead="pr.text for pr in assessment.prItems | filter: $viewValue | limitTo:8" id="proteinRequirement" class="selectText" ng-model="assessment.proteinRequirement" ng-change="assessment.calcBMI()" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                             <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Height (Cm):
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" ng-change="assessment.calcBMI()" ng-model="assessment.heightCm" typeahead="height.text for height in assessment.heightItems | filter: $viewValue | limitTo:8" id="heightCm" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Source:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <select ng-model="assessment.heightSource" class="selectText"  id="heightSource">
+                                                                                    <option value="Actual" selected="selected">Actual</option>
+                                                                                    <option value="Family">Family</option>
+                                                                                    <option value="Dietician">Dietician</option>
+                                                                                    <option value="Patient">Patient</option>
+                                                                                </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Current BMI:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" id="BMI" ng-model="assessment.BMI" size="2" class="calculated" readonly="readonly"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                             <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Target BMI:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <select id="adjustedCalcMethod" ng-model="assessment.adjustedCalcMethod" ng-change="calcBMI()"></select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Target Weight (Kg): 
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" id="adjustedWeight" class="selectText" ng-model="assessment.adjustedWeight" size="2" class="calculated" readonly="readonly"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Schofield without SF and AF (MJ/day):
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" ng-model="assessment.schofieldMidCalc" id="schofieldMidCalc" size="3" class="calculated" readonly="readonly"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                             <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Assessment Date:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <quick-datepicker id="assesmentDate"  ng-model="assessment.assesmentDate" ></quick-datepicker>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-3">
+                                                                                           Dietician:
+                                                                                        </div>
+                                                                                        <div class="col-xs-9">
+                                                                                            <input type="text" size="16" maxlength="16" id="assessmentDietician" ng-model="assessment.assessmentDietician" class="calculated" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                               </div>
+                                                            <div id="Plan">
+                                                                <div id="accordion">
+                                                                    <h3><a href="#">EN</a></h3>
+                                                                    <div id="EN">
+                                                                        <span class="standard_text">Pump BE:<input type="text" size="4" id="eNPumpBE"/></span>
+                                                                        <span class="standard_text">Target Rate:<input type="text" id="eNTarget" class="selectText" ng-model="assessment.eNTarget" ng-change="assessment.planCalcs()" typeahead="en.text for en in assessment.enTargetItems | filter: $viewValue | limitTo:8" />ml/h</span>
+                                                                        <span class="standard_text">Target Hours:<input type="text" id="eNHoursFeed" class="selectText" ng-model="assessment.eNHoursFeed" ng-change="assessment.planCalcs()" typeahead="hr.text for hr in assessment.enHoursItems | filter: $viewValue | limitTo:8" />/24</span>
+                                                                        <span class="standard_text">Formula:
+                                                                            <select class="selectText" ng-model="assessment.eNFormula" ng-change="assessment.planCalcs()" id="eNFormula">
+                                                                                <option id="eNFormula_1" value="1" selected="selected">Nutrison 1.0</option>
+                                                                                <option id="eNFormula_2" value="2">Nutrison Multifibre</option>
+                                                                                <option id="eNFormula_3" value="3">Diason</option>
+                                                                                <option id="eNFormula_4" value="4">Nutrison Low Sodium</option>
+                                                                                <option id="eNFormula_5" value="5">Pepti- sorb</option>
+                                                                                <option id="eNFormula_6" value="6">Nutrison Energy</option>
+                                                                                <option id="eNFormula_7" value="7">Nutrison Protein Plus</option>
+                                                                                <option id="eNFormula_8" value="8">Nutrison Energy with Multifibre</option>
+                                                                                <option id="eNFormula_9" value="9">Nutrison Conc</option>
+                                                                                <option id="eNFormula_10" value="10">Nutren Pulmonary</option>
+                                                                                <option id="eNFormula_11" value="11">Petamen AF</option>
+                                                                            </select>
+                                                                        </span>
+                                                                        <br>
+                                                                        <span class="standard_text">Target Volume (ml):<input type="text" ng-model="assessment.eNTargetVolume" id="eNTargetVolume" size="3" class="calculated" readonly="readonly"/></span>
+                                                                        <span class="standard_text">Target Energy (MJ/day):<input type="text" ng-model="assessment.eNTargetEnergyMJ" id="eNTargetEnergyMJ" size="3" class="calculated" readonly="readonly"/> or (Kcal/day) <input type="text" ng-model="assessment.eNTargetEnergyKcal" id="eNTargetEnergyKcal" size="3" class="calculated" readonly="readonly"/></span>
+                                                                        <span class="standard_text">Target Protein (g/day):<input type="text" ng-model="assessment.eNTargetProtein" id="eNTargetProtein" size="3" class="calculated" readonly="readonly"/></span>
+                                                                    </div>
+                                                                    <h3><a href="#">PN</a></h3>
+                                                                    <div id="PN">
+                                                                        <!-- use this when we have better links into pharmacy to check against the delivery lines in the unit
+                                                                                                                        - via the CareFusion pump status module
+                                                                                                                        then we will be able to see that it's nutrition - this is more of an auto-charting thing
+                                                                                                                        <span>Pump BE No:<input type="text" size="4" id="pNPumpBE"/></span>
+                                                                                                                        end "use this" -->
+                                                                        <span class="standard_text">Target Rate:<input type="text" id="pNTargetRate" class="selectText" ng-model="assessment.pNTargetRate" ng-change="assessment.planCalcs()" typeahead="pn.text for pn in assessment.pnTargetItems | filter: $viewValue | limitTo:8" /> ml/h</span>
+                                                                        <span class="standard_text">Hours feed:<input type="text" id="pNHoursFeed" class="selectText" ng-model="assessment.pNHoursFeed" ng-change="assessment.planCalcs()" typeahead="hr.text for hr in assessment.pnHoursItems | filter: $viewValue | limitTo:8" /> /24 </span>
+                                                                        <span class="standard_text">Formula:
+                                                                            <select class="selectText" ng-model="assessment.pNFormula" ng-change="assessment.planCalcs()" id="pNFormula">
+                                                                                <option id="pNFormula_1" value="1" selected="selected">Standard PN</option>
+                                                                                <option id="pNFormula_2" value="2">Glutamine PN</option>
+                                                                            </select>
+                                                                        </span>
+                                                                        <br>
+                                                                        <span class="standard_text">Target Volume (ml):<input type="text" id="pNTargetVolume" ng-model="assessment.pNTargetVolume" size="3" class="calculated" readonly="readonly"/>ml</span>
+                                                                        <span class="standard_text">Target Energy (MJ/day):<input type="text" id="pNTargetEnergyMJ" ng-model="assessment.pNTargetEnergyMJ" size="3" class="calculated" readonly="readonly"/> or (Kcal/day) <input type="text" ng-model="assessment.pNTargetEnergyKcal" id="pNTargetEnergyKcal" size="3" class="calculated" readonly="readonly"/></span>
+                                                                        <span class="standard_text">Target Protein (g/day):<input type="text" id="pNTargetProtein" ng-model="assessment.pNTargetProtein" size="3" class="calculated" readonly="readonly"/></span>
+                                                                    </div>
+                                                                    <h3><a href="#">Oral</a></h3>
+                                                                    <div id="oral">
+                                                                        <span class="standard_text">Diet Code:
+                                                                            <select class="selectText" id="oralDietCode" ng-model="assessment.oralDietCode" ng-change="assessment.planCalcs()">
+                                                                                <option value="0" selected="selected">Nil orally</option>
+                                                                                <option value="2">Allergy Diet</option>
+                                                                                <option value="3">Clear Fluids Only</option>
+                                                                                <option value="4">Diabetic Diet</option>
+                                                                                <!-- <option value="5">Diabetic Minced Diet & Thin fluids</option> -->
+                                                                                <option value="40">Diabetic Diet</option>
+                                                                                <option value="6">Diabetic Renal Diet</option>
+                                                                                <option value="41">Diabetic Minced & Moist/Regular Fluids</option>
+                                                                                <option value="42">Diabetic Smooth Pureed/Regular Fluids</option>
+                                                                                <!-- <option value="7">Diabetic Soft Ward Diet</option> -->
+                                                                                <!-- <option value="8">Diabetic Vitamised Diet & Thin Fluids</option> -->
+                                                                                <option value="9">Enteral Nutrition Only</option>
+                                                                                <option value="10">Free Fluids Only</option>
+                                                                                <!-- <option value="11">Full Ward Diet</option> -->
+                                                                                <option value="43">Full Regular Diet</option>
+                                                                                <option value="12">Gluten Free Diet</option>
+                                                                                <option value="13">Halal Diet (The Alfred Only)</option>
+                                                                                <option value="14">High Energy High Protein Diet</option>
+                                                                                <option value="15">Kosher Diet</option>
+                                                                                <option value="16">Light Ward Diet</option>
+                                                                                <option value="16">Limited Vitamised Diet & Honey Thick Fluids</option>
+                                                                                <option value="18">Limited Vitamised Diet & Nectar Thick Fluids</option>
+                                                                                <option value="19">Low Residue Diet</option>
+                                                                                <option value="20">Low Salt Diet (The Alfred / SDMH Only)</option>
+                                                                                <option value="21">Maternity Diet (SDMH Only)</option>
+                                                                                <!-- <option value="22">Minced Diet & Honey Thick Fluids</option> -->
+                                                                                <!-- <option value="23">Minced Diet & Nectar Thick Fluids</option> -->
+                                                                                <!-- <option value="24">Minced Diet & Thin Fluids</option> -->
+                                                                                <option value="44">Minced & Moist/Regular Fluids</option>
+                                                                                <option value="45">Minced & Moist/Mildly Thick Fluids</option>
+                                                                                <option value="46">Minced & Moist/Moderately Thick Fluids</option>
+                                                                                <option value="46">Minced & Moist/Moderately Thick Fluids</option>
+                                                                                <option value="47">Ltd Smooth Pureed/Midly Thick Fluids</option>
+                                                                                <option value="48">Ltd Smooth Pureed/Moderately Thick Fluids</option>
+                                                                                <option value="49">Smooth Pureed/Regular Fluids</option>
+                                                                                <option value="50">Smooth Pureed/Mildly Thick Fluids</option>
+                                                                                <option value="51">Smooth Pureed/Moderately Thick Fluids</option>
+                                                                                <option value="25">Neutropenic Diet (The Alfred only)</option>
+                                                                                <option value="26">Pyramid Diet</option>
+                                                                                <option value="27">Renal Diet</option>
+                                                                                <option value="52">Soft Diet</option>
+                                                                                <option value="53">Soft Diet/Midly Thick Fluids</option>
+                                                                                <option value="54">Soft Diet/Moderately Thick Fluids</option>
+                                                                                <option value="28">Soft High Energy High Protein Diet</option>
+                                                                                <option value="29">Soft Renal Diet (The Alfred Only)</option>
+                                                                                <!-- <option value="30">Soft Ward Diet</option> -->
+                                                                                <!-- <option value="31">Soft Ward Diet & Honey Thick Fluids</option> -->
+                                                                                <!-- <option value="32">Soft Ward Diet & Nectar Thick Fluids</option> -->
+                                                                                <option value="33">Vegetarian Diet</option>
+                                                                                <!-- <option value="34">Vitamised Diet & Honey Thick Fluids</option> -->
+                                                                                <!-- <option value="35">Vitamised Diet & Nectar Thick Fluids</option> -->
+                                                                                <!-- <option value="36">Vitamised Diet & Thin Fluids</option> -->
+                                                                                <option value="37">Pre Theatre Meals (The Alfred Only)</option>
+                                                                                <option value="38">Pre Theatre Meal / Honey Thick Fluids (The Alfred Only)</option>
+                                                                                <option value="39">Pre Theatre Meal / Nectar Thick Fluids (The Alfred Only)</option>
+                                                                            </select>
+                                                                        </span>
+                                                                        <span class="standard_text">Supplements:
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os2');" ng-model="assessment.os2" id="os2">Big M</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os3');" ng-model="assessment.os3" id="os3">Diabetic Flav Milk</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os4');" ng-model="assessment.os4" id="os4">H.P Milkshake</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os5');" ng-model="assessment.os5" id="os5">Sustagen Milk</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os6');" ng-model="assessment.os6" id="os6">Enlive Plus</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os7');" id="os7" ng-model="assessment.os7">Ensure Plus (cans)</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os8');" id="os8" ng-model="assessment.os8">Resource Plus</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os9');" id="os9" ng-model="assessment.os9">Fortisip</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os10');" id="os10" ng-model="assessment.os10">Resource Fruit beverage</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os11');" id="os11" ng-model="assessment.os11">Novasource 2.0</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os12');" id="os12" ng-model="assessment.os12">Resource Diabetic</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os13');" id="os13" ng-model="assessment.os13">Nepro</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os14');" id="os14" ng-model="assessment.os14">Sustagen Pudding</input>
+                                                                            <input type="checkbox" ng-click="assessement.updateOralSupplementText('os15');" id="os15" ng-model="assessment.os15">Resource Thicken up</input>
+                                                                            <input type="text" class="hiddenVar" ng-model="assessment.oralSupplements" id="oralSupplements"/>
+                                                                        </span>
+                                                                        <br>
+                                                                        <span class="standard_text">Target Energy (MJ/day):<input type="text" ng-model="assessment.oralEstimateEnergy" ng-change="assessment.planCalcs()" id="oralEstimateEnergy" size="3" > or (Kcal/day) <input type="text" id="oralEstimateEnergykcal" ng-model="assessement.oralEstimateEnergyKcal" size="3" class="calculated" readonly="readonly"/>kcal/day</span>
+                                                                        <span class="standard_text">Target Protein (g/day):<input type="text" ng-model="assessment.oralEstimateProtein" ng-change="assessment.planCalcs()" id="oralEstimateProtein" size="3" ></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="targets">
+                                                            <div id="accordion2">
+                                                                <h3><a href="#">Total Target Energy and Total Target Protein</a></h3>
+                                                                <div id="totals">
+                                                                    <span class="standard_text">Progress to date/Weight history/Plan comments:</span><br>
+                                                                    <textarea class="standard_text" rows="2" cols="80" id="progressToDateHistory" ng-model="assessment.progressToDateHistory"></textarea>
+                                                                    <br><br>
+                                                                    <span class="standard_text">Require:</span>
+                                                                    <span class="standard_text">Energy (MJ/day):<input type="text" id="dailyEnergyRequirements" ng-model="assessment.dailyEnergyRequirements" size="3" class="calculated" readonly="readonly"/> or (Kcal/Kg/day) <input type="text" ng-model="assessment.dailyEnergyRequirementsKcal" id="dailyEnergyRequirementsKcal" size="3" class="calculated" readonly="readonly"/></span>
+                                                                    <span class="standard_text">Protein (g/day):<input type="text" id="dailyProteinRequirements" ng-model="assessment.dailyProteinRequirements" size="3" class="calculated" readonly="readonly"/></span><br>
+                                                                    <span class="standard_text">Planned:</span>
+                                                                    <span class="standard_text">Energy (MJ/day):<input type="text" ng-model="assessment.targetEnergyMJ" id="TargetEnergyMJ" size="4" class="calculated" readonly="readonly"/> or (Kcal/day) <input type="text" id="TargetEnergyKcal" ng-model="assessment.targetEnergyKcal"  size="4" class="calculated" readonly="readonly"/></span>
+                                                                    <span class="standard_text">Protein (g/day):<input type="text" ng-model="assessment.targetProtein" id="TargetProtein" size="4" class="calculated" readonly="readonly"/></span>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                            </div>
+                                                    <div class="col-lg-2">
+                                                    
+                                                        <div>
+                                                            <input class="defaults" type="button" ng-click="assessment.setUpDefaultVals(false);" value="Set Plan defaults" />
+                                                            <input class="button-new" type="button" ng-click="assessment.setNewANP();" value="Save new a/x & Plan"/>
+                                                            <input class="button-update" type="button" ng-click="assessment.setANP();" value="Re-save Plan "/>
+                                                            <ul id="plans_list">
+                                                                <li id="plan_{{plan}}" ng-repeat="plan in assessment.plans"  class="dictionary_list" ng-click="assessment.getPlan('{{plan}}')">
+                                                                     Date: {{plan}}</li>
+                                                            </ul>
+                                                        </div>
+                                                </div>
+                                                </div>
+                                  </div>
+                        </div>
+                    
+        <div class="hiddenVar">
+            <div id="nonPrintableInfo">
+                <br/>
+                <span>
+                    DoB:<input type="text" id="dOB" size="5" class="calculated" readonly="readonly" />
+                </span>
+                <span>
+                    Admission ID:<input type="text" ng-model="assessment.admId" id="admId" size="8" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    ICU Admission ID:<input type="text" ng-model="assessment.icuAdmId" id="iCUAdmId" size="4" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    Hospital Admission Date:<input type="text" id="AdmDate" size="6" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    ICU Admission Date:<input type="text" id="iCUAdmDate" size="6" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    Extra Plan:<input type="checkbox" id="extraPlan"/>
+                </span>
+                <span>
+                    UR:<input type="text" ng-model="assessment.pmiId" id="ur" size="10" />
+                </span>
+                <span>
+                    Age:<input type="text" ng-model="assessment.age" id="age" size="10" />
+                </span>
+                <span>
+                    Sex:<input type="text" id="sex" ng-model="assessment.sex" size="10" />
+                </span>
+            </div>
+        </div>
+        <div style="visibility:hidden">
+            <input type="checkbox" id="heightEstimateOrActual" value="false"  />
+            <input type="checkbox" id="weightEstimateOrActual" value="false" />
+        </div>

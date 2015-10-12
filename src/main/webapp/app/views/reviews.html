@@ -1,0 +1,154 @@
+<div class="content">   
+<div class="row">
+                            <div id="reviews" class="col-lg-10">
+                                        <div>
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <div>
+                                                                <span class="standard_text">Today:<input type="text" id="reviewDay" ng-model="reviews.reviewDay" class="calculated" readonly="readonly"/></span>
+                                                                <span class="standard_text">Date being reviewed:<quick-datepicker  id="reviewDate" ng-model="reviews.reviewDate" ></quick-datepicker></span><!--(pick list of last 3 days? ie. on Monday reviewing Fri, sat and sun?) -->
+                                                                <span class="standard_text">Dietician:<input type="text" size="16" maxlength="16" id="reviewDietician" ng-model="reviews.reviewDietician" class="calculated" /></span>
+                                                            </div><br/><br />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div >
+                                                                <table>
+                                                                    <tr><td><span class="standard_text">EN received (ml):</span></td><td><input ng-model="reviews.eNrecieved" ng-change="reviews.calcReview()" type="text" id="eNrecieved" size="4" /><!--<select id="eNrecieved" ng-change="calcReview()"></select>--></td></tr>
+                                                                    <tr><td><span class="standard_text">PN Received (ml):</span></td><td><input type="text" ng-change="reviews.calcReview()" ng-model="reviews.pNreceived" id="pNreceived" size="4" /><!--<select id="pNreceived" ng-change="calcReview()"></select>--></td></tr>
+                                                                    <tr><td><span class="standard_text">Propofol Received (ml):</span></td><td><input type="text" ng-change="reviews.calcReview()" ng-model="reviews.propofol" id="propofol" size="4" /><!--<select id="propofol" ng-change="calcReview()"></select>--></td></tr>
+                                                                    <tr><td><span class="standard_text">Oral Energy Received (MJ):</span></td><td><input type="text" ng-change="reviews.calcReview()" ng-model="reviews.oralEnergyReceived" id="oralEnergyReceived" size="4" /><!--<select id="oralEnergyReceived" ng-change="calcReview()"></select>--></td></tr>
+                                                                    <tr><td><span class="standard_text">Oral Protein Received (g):</span></td><td><input type="text" ng-change="reviews.calcReview()" ng-model="reviews.oralProteinReceived" id="oralProteinReceived" size="4" /><!--<select id="oralProteinReceived" ng-change="calcReview()"></select>--></td></tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div >
+                                                                <table>
+                                                                    <tr><td colspan="2"><label class="standard_text">Bowel Actions:</label></td><td><input type="text" id="bowelActions" ng-model="reviews.bowelActions" typeahead="b.text for b in reviews.baItems | filter: $viewValue | limitTo: 8" /></td></tr>
+                                                                    <tr><td><span class="standard_text">Stoma/Flexiseal:<input type="checkbox" id="flexiseal" ng-model="reviews.fexiseal" ng-change='reviews.bowelActions = 1'></span></td><td><span class="standard_text">Volume</span></td><td><input type="text" ng-model="reviews.flexisealVolume" id="flexisealVolume" size="4" /><!--<select id="flexisealVolume"></select>--></td></tr>
+                                                                    <tr><td colspan="2"><label class="standard_text">Days since last bowel action:</label></td><td><input type="text" ng-model="reviews.numberOfDaysSinceBowelsOpened" id="numberOfDaysSinceBowelsOpened" class="calculated" readonly="readonly" size=4/></td></tr>
+                                                                    <tr><td><span class="standard_text">Vomit:<input type="checkbox" id="vomit" ng-model="reviews.vomit"></span></td><td><span class="standard_text">Volume (ml):</span></td><td><input type="text" ng-model="reviews.vomitVolume" id="vomitVolume" size="4" /><!--<select id="vomitVolume"></select>--></td></tr>
+                                                                    <tr><td><span class="standard_text">Aspirates:</span></td><td><span class="standard_text">Total (ml):</span></td><td><input type="text" ng-model="reviews.totalGastricAspirateVolume" id="totalGastricApirateVolume" size="4" /><!--<select id="totalGastricApirateVolume"></select>--></td></tr>
+                                                                    <tr><td><span class="standard_text">Fine bore:<input ng-model="reviews.findBore" type="checkbox" id="fineBore"></span></td><td><span class="standard_text">&gt; 500ml</span></td><td><input type="text" ng-model="reviews.numberOfGastricAspirate" id="numberOfGastricAspirate" typeahead="n.text for n in reviews.ngItems | filter: $viewValue | limitTo: 8" /></td></tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="prokinetics">
+                                                                            <table>
+                                                                                <tr><td><span><label class="standard_text">Current Prokinetics:</label></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.pkErythromycin" id="pkErythromycin">Erythromycin</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.pkMetoclopramide" id="pkMetoclopramide">Metoclopramide</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.pkOther" id="pkOther">Other</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.pkNone" id="pkNone">None</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.pkNotGiven" id="pkNotGiven">Not Given</span></td></tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="aperients">
+                                                                            <table>
+                                                                                <tr><td colspan=2><span><label class="standard_text">Current Aperients:</label></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.apFleet" id="apFleet">Fleet</input></span></td>
+                                                                                    <td><span><input type="checkbox" ng-model="reviews.apEnema" id="apEnema">Enema</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.apColoxyl" id="apColoxyl">Coloxyl</input></span></td>
+                                                                                    <td><span><input type="checkbox" ng-model="reviews.apLactulose" id="apLactulose">Lactulose</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.apMovicol" id="apMovicol">Movicol</input></span></td>
+                                                                                    <td><span><input type="checkbox" ng-model="reviews.apGoLytely" id="apGoLytely">GoLytely</input></span></td></tr>
+                                                                                <tr><td><span><input type="checkbox" ng-model="reviews.apCerner" id="apCerner">None</input></span></td>
+                                                                                    <td><span><input type="checkbox" ng-model="reviews.apNotGiven" id="apNotGiven">Not Given</input></span></td></tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div>
+                                                                <textarea rows="8" cols="80" class="reviewCommentBox" ng-model="reviews.reviewComment" id="reviewComment"></textarea>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="standard_text">
+                                                                <table>
+                                                                    <tr><td colspan=4 align="center"><label class="standard_text">Balance for the date being reviewed</label></td></tr>
+                                                                    <tr>
+                                                                        <td>EN Energy</td><td><input type="text" ng-model="reviews.eNEnergyDailyBal" id="eNEnergyDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                        <td>EN Protein</td><td><input type="text" id="eNProteinDailyBal" ng-model="reviews.eNProteinDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                    </tr>
+                                                                    <tr><td>PN Energy</td><td><input type="text" ng-model="reviews.pNEnergyDailyBal" id="pNEnergyDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                        <td>PN Protein</td><td><input type="text" ng-model="reviews.pNProteinDailyBal" id="pNProteinDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Oral Energy</td><td><input ng-model="reviews.oralEnergyDailyBal" type="text" id="oralEnergyDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                        <td>Oral Protein</td><td><input ng-model="reviews.oralProteinDailyBal" type="text" id="oralProteinDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Propofol<br/>Energy</td><td><input type="text" ng-model="reviews.propofolEnergyDailyBal" id="propofolEnergyDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                        <td colspan="2">&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Total Energy</td><td><input ng-model="reviews.totalEnergyDailyBal" type="text" id="totalEnergyDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                        <td>Total Protein</td><td><input ng-model="reviews.totalProteinDailyBal" type="text" id="totalProteinDailyBal" size="3" class="calculated" readonly="readonly"/>%</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    <tr/>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input class="defaults" type="button" ng-click="reviews.setUpDefaultVals()" value="Set Review Defaults" />
+                                            <input class="button-vals" type="button" ng-click="reviews.setNutritionValuesForDay()" value="Get Review Values" />
+                                            <input class="button-new" type="button" ng-click="reviews.setNewReview()" value="New Review"/>
+                                            <input class="button-update" type="button" ng-click="reviews.setReview()" value="Update Changes"/>
+                                            <input class="button-delete" type="button" ng-click="reviews.removeReview()" value="Delete Review"/>
+                                            <ul id="reviews_list">
+                                                 <li id="review_{{rev}}" ng-repeat="rev in reviews.reviews"  class="dictionary_list" ng-click="reviews.getReview('{{rev}}')">
+                                                                     Date: {{rev}}</li>
+                                            </ul>
+                                        </div>
+                            </div>
+<div class="hiddenVar">
+            <div id="nonPrintableInfo">
+                <br/>
+                <span>
+                    DoB:<input type="text" id="dOB" size="5" class="calculated" readonly="readonly" />
+                </span>
+                <span>
+                    Admission ID:<input type="text" ng-model="reviews.admId" id="admId" size="8" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    ICU Admission ID:<input type="text" ng-model="reviews.icuAdmId" id="iCUAdmId" size="4" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    Hospital Admission Date:<input type="text" id="AdmDate" size="6" class="calculated" readonly="readonly"/>
+                </span>
+                <span>
+                    ICU Admission Date:<input type="text" id="iCUAdmDate" size="6" class="calculated" readonly="readonly"/>
+                </span>
+                 <span>
+                    UR:<input type="text" ng-model="reviews.pmiId" id="ur" size="10" />
+                </span>
+                <span>
+                    Age:<input type="text" ng-model="reviews.age" id="age" size="10" />
+                </span>
+                <span>
+                    Sex:<input type="text" id="sex" ng-model="reviews.sex" size="10" />
+                </span>
+            </div>
+        </div>
+ <div style="visibility:hidden">
+            <input type="checkbox" id="heightEstimateOrActual" value="false"  />
+            <input type="checkbox" id="weightEstimateOrActual" value="false" />
+        </div>
+</div>
