@@ -7,25 +7,19 @@ package au.org.alfred.icu.nutrition.factories;
 
 import au.org.alfred.icu.nutrition.persistence.Assesmentandplan;
 import org.apache.cayenne.CayenneRuntimeException;
-import org.apache.cayenne.DataObjectUtils;
 import org.apache.cayenne.access.DataContext;
 import org.apache.cayenne.exp.Expression;
 import org.apache.cayenne.exp.ExpressionFactory;
 import org.apache.cayenne.query.SelectQuery;
-import org.w3c.dom.Document;
-import au.org.alfred.icu.kinetic.library.helperfactories.*;
 import au.org.alfred.icu.nutrition.persistence.Review;
 import au.org.alfred.icu.nutrition.persistence.ReviewDateComparator;
 import au.org.alfred.icu.nutrition.plotting.NutritionPlotObject;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.jws.WebParam;
 import org.apache.cayenne.query.Ordering;
 import org.apache.cayenne.query.SQLTemplate;
 import org.apache.cayenne.query.SortOrder;
-import org.apache.cayenne.validation.ValidationResult;
-import org.joda.time.*;
 
 /**
  *
