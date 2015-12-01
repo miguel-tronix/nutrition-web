@@ -1,2 +1,2 @@
 # nutrition-web
-Online solution for clinical deiticians to manager patient nutrtition
+Online solution for clinical deiticians to manage patient nutrtition
